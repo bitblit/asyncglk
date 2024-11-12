@@ -42,9 +42,9 @@ jobs:
       #  with:
       #    CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-      #- name: Apply Github Info
-      #  run: yarn apply-github-info
-      #  shell: bash
+      - name: Apply Github Info
+        run: yarn apply-ci-vars
+        shell: bash
 
       - name: Deploy to NPMJS
         run: yarn publish-alpha

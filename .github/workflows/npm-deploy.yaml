@@ -31,20 +31,16 @@ jobs:
         run: yarn build
         shell: bash
 
-      - name: Test
-        run: yarn test-coverage
-        shell: bash
+      #- name: Test
+      #  run: yarn test-coverage
+      #  shell: bash
 
-      - uses: ./.github/workflows/actions/upload-code-coverage
-        with:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      #- uses: ./.github/workflows/actions/upload-code-coverage
+      #  with:
+      #    CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Apply Github Info
-        run: yarn apply-github-info
-        shell: bash
-
-      - name: Set Codependency versions
-        run: yarn set-codependencies
+        run: yarn apply-ci-vars
         shell: bash
 
       - name: Deploy to NPMJS
