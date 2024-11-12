@@ -1,0 +1,54 @@
+name: Build and Deploy Production Library
+
+on:
+  push:
+    tags:
+      - "release-*"
+env:
+  NODE_OPTIONS: --max_old_space_size=8192
+
+jobs:
+  build-and-deploy-production-library:
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure environment
+        uses: ./.github/workflows/actions/build-env-setup
+        with:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Clean
+        run: yarn clean
+        shell: bash
+
+      - name: Build
+        run: yarn build
+        shell: bash
+
+      - name: Test
+        run: yarn test-coverage
+        shell: bash
+
+      - uses: ./.github/workflows/actions/upload-code-coverage
+        with:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Apply Github Info
+        run: yarn apply-github-info
+        shell: bash
+
+      - name: Set Codependency versions
+        run: yarn set-codependencies
+        shell: bash
+
+      - name: Deploy to NPMJS
+        run: yarn publish
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

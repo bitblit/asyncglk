@@ -85,10 +85,10 @@ export class Blorb {
         }
     }
 
-    init(data: Array<any>): void;
+    init(data: any[]): void;
     init(data: InfoMap, options: {format: 'infomap'}): void;
     init(data: Uint8Array): void;
-    init(data: Array<any> | InfoMap | Uint8Array, options?: any) {
+    init(data: any[] | InfoMap | Uint8Array, options?: any) {
         if (this.is_inited) {
             return
         }

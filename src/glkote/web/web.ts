@@ -18,8 +18,8 @@ import TranscriptRecorder from './transcript-recorder.js'
 import Windows, {GraphicsWindow} from './windows.js'
 
 interface AutosaveState {
-    graphics_bg?: Array<[number, string]>,
-    history?: Array<string>,
+    graphics_bg?: [number, string][],
+    history?: string[],
     transcript_recorder_session?: string,
 }
 
@@ -297,7 +297,7 @@ export default class WebGlkOte extends GlkOte.GlkOteBase implements GlkOte.GlkOt
     }
 
     save_allstate(): AutosaveState {
-        const graphics_bg: Array<[number, string]> = []
+        const graphics_bg: [number, string][] = []
         for (const win of this.windows.values()) {
             if (win.type === 'graphics') {
                 graphics_bg.push([win.id, win.fillcolour])

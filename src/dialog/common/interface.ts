@@ -14,8 +14,8 @@ import type {GlkOte} from '../../glkote/common/glkote.js'
 
 export type Dialog = AsyncDialog | ClassicSyncDialog | ClassicStreamingDialog
 
-export type AutosaveData = {
-    ram?: Array<number> | Uint8Array,
+export interface AutosaveData {
+    ram?: number[] | Uint8Array,
 }
 
 export interface DialogOptions {

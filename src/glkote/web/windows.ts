@@ -503,7 +503,7 @@ export class GraphicsWindow extends WindowBase {
     framequeue: protocol.GraphicsWindowOperation[][] = []
     /** Height in CSS pixels */
     height = 0
-    image_cache: Map<number | string, HTMLImageElement> = new Map()
+    image_cache = new Map<number | string, HTMLImageElement>()
     /** Width in CSS pixels */
     width = 0
 

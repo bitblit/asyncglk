@@ -83,7 +83,7 @@ export class CheapAsyncDialog implements AsyncDialog {
 
     async write(files: Record<string, Uint8Array>) {
         for (const [path, data] of Object.entries(files)) {
-            fs.writeFileSync(path_posix_to_native(path), data, {flush: true})
+            fs.writeFileSync(path_posix_to_native(path), data, {});//flush: true})
         }
     }
 }

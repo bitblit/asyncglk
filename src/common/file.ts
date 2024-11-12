@@ -47,7 +47,7 @@ export async function read_response(response: Response, progress_callback?: Prog
     }
 
     // Read the response, calling the callback with each chunk
-    const chunks: Array<[number, Uint8Array]> = []
+    const chunks: [number, Uint8Array][] = []
     let length = 0
     const reader = response.body!.getReader()
     for (;;) {

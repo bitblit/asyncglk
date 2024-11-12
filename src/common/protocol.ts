@@ -132,7 +132,7 @@ export interface SpecialEvent extends EventBase {
     value: FileRef | null,
 }
 
-export type FileRef = {
+export interface FileRef {
     content?: string,
     dirent?: string,
     filename: string,

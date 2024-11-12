@@ -21,7 +21,7 @@ export class DownloadProvider implements Provider {
     browseable = false
     next = new NullProvider()
     private options: DownloadOptions
-    private store: Map<string, Uint8Array> = new Map()
+    private store = new Map<string, Uint8Array>()
 
     constructor(options: DownloadOptions) {
         this.options = options
