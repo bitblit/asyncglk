@@ -10,7 +10,7 @@ https://github.com/curiousdannii/asyncglk
 */
 
 import type {Provider} from './interface.js'
-import AlertDialog from './ui/AlertDialog.svelte'
+//import AlertDialog from './ui/AlertDialog.svelte'
 
 export const ALERT_MODE_ALERT = 0
 export const ALERT_MODE_CONFIRM = 1
@@ -31,6 +31,7 @@ export class NullProvider implements Provider {
 }
 
 export async function show_alert(title: string, message: string) {
+    /*
     const alert = new AlertDialog({
         target: document.body,
         props: {
@@ -41,4 +42,7 @@ export async function show_alert(title: string, message: string) {
     })
     await alert.open()
     alert.$destroy()
+
+     */
+    alert(message);
 }

@@ -18,7 +18,7 @@ import {show_alert} from './common.js'
 import {DownloadProvider, read_uploaded_file} from './download.js'
 import type {BrowseableProvider, BrowserDialog, DirEntry, DownloadOptions, FilesMetadata, Provider} from './interface.js'
 import {WebStorageProvider} from './storage.js'
-import FileDialog from './ui/FileDialog.svelte'
+//import FileDialog from './ui/FileDialog.svelte'
 
 export class ProviderBasedBrowserDialog implements BrowserDialog {
     'async' = true as const
@@ -117,17 +117,18 @@ export class ProviderBasedBrowserDialog implements BrowserDialog {
 
 /** Controller for FileDialog */
 export class DialogController {
-    private dialog: FileDialog
+    private dialog: any;//FileDialog
     private metadata: FilesMetadata = {}
     private provider: BrowseableProvider
 
     constructor(provider: BrowseableProvider) {
-        this.dialog = new FileDialog({
+        this.dialog=null;
+        /*this.dialog = new FileDialog({
             target: document.body,
             props: {
                 controller: this,
             },
-        })
+        })*/
         this.provider = provider
     }
 
