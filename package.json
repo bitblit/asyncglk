@@ -64,7 +64,7 @@
     "svelte-check": "svelte-check",
     "test": "./tests/runtests.sh",
     "apply-ci-vars": "yarn run ratchet-cli apply-ci-env-variables-to-files github src/build/bitblit-asyncglk-info.ts",
-    "publish": "yarn npm publish --access public --new-version 0.0.\"$GITHUB_RUN_NUMBER\"",
-    "publish-alpha": "yarn npm publish --access public --new-version 0.0.\"$GITHUB_RUN_NUMBER\"-alpha"
+    "publish": "yarn publish --access public --new-version 0.0.\"$GITHUB_RUN_NUMBER\"",
+    "publish-alpha": "yarn publish --access public --new-version 0.0.\"$GITHUB_RUN_NUMBER\"-alpha"
   }
 }
